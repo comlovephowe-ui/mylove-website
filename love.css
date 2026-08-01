@@ -1,0 +1,116 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #1a1a1a;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      cursor: default;
+      user-select: none;
+    }
+    #stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .word {
+      position: absolute;
+      color: #ff2a2a;
+      font-size: 11px;
+      font-weight: 500;
+      white-space: nowrap;
+      opacity: 0;
+      text-shadow: 0 0 6px rgba(255, 40, 40, 0.7);
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .word.visible {
+      opacity: 1;
+    }
+    #overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      text-align: center;
+      pointer-events: none;
+    }
+    #loveText {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2.8rem;
+      color: #f0e6d8;
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    #loveText.show {
+      opacity: 1;
+    }
+    /* System / decrypt screen */
+    #system {
+      position: absolute;
+      inset: 0;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      color: #c8c8c8;
+      font-family: 'Consolas', 'Courier New', monospace;
+      transition: opacity 0.8s ease;
+    }
+    #system.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .sys-line {
+      font-size: 1.05rem;
+      margin: 0.35rem 0;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .sys-line.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .sys-red {
+      color: #ff5555;
+    }
+    #decryptBtn {
+      margin-top: 1.8rem;
+      padding: 0.7rem 1.6rem;
+      background: linear-gradient(180deg, #ff4d4d, #c62828);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(255, 50, 50, 0.35);
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.2s;
+    }
+    #decryptBtn.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+    #decryptBtn:hover {
+      box-shadow: 0 6px 20px rgba(255, 50, 50, 0.5);
+      transform: scale(1.03);
+    }
+    #decryptBtn:active {
+      transform: scale(0.97);
+    }
